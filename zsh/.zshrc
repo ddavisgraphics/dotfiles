@@ -66,6 +66,7 @@ plugins=(
   git
   rails
   ruby
+  tmux
 )
 
 source $ZSH/oh-my-zsh.sh

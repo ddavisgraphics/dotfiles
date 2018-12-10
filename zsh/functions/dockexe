@@ -1,0 +1,8 @@
+function dockexe {
+  if [ "$1" != "" ]
+  then
+      docker exec -it "$1" bash
+  else
+    echo "No container name provided."
+  fi 
+}
