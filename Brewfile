@@ -1,7 +1,15 @@
 brew 'memcached', restart_service: true
 
+brew 'coreutils'
+brew 'ruby-build'
+brew 'source-highlight'
 brew 'tig'
-brew "neovim/neovim/neovim"
+brew 'tree'
+brew 'unrar'
+brew 'imagemagick'
+brew 'jp2a'
+brew 'jq'
+brew 'tig'
 brew 'watch'
 brew 'tree'
 brew 'wget'
@@ -15,17 +23,28 @@ brew 'fzf'
 brew 'jq'
 brew 'cowsay'
 
-brew 'nvm'
-brew 'awscli'
-brew 'gist'
-
 # Programming languages
 brew 'elm'
 brew 'erlang'
 brew 'elixir'
-# brew 'ghc'
-# brew 'cabal-install'
 brew 'python'
 brew 'python3'
-# brew 'go'
 
+cask_args appdir: '/Applications'
+tap 'homebrew/bundle'
+
+# databases
+# brew 'mysql'
+# brew 'postgresql'
+# brew 'memcached'
+# brew 'postgres'
+# brew 'redis'
+# brew 'elasticsearch'
+
+# casks apps
+cask 'firefox'
+cask 'google-chrome'
+cask 'iterm2'
+cask 'visual-studio-code'
+cask 'slack'
+cask 'vlc'
