@@ -9,7 +9,6 @@ tap 'homebrew/services'
 # Tap caskroom
 tap 'caskroom/cask'
 tap 'caskroom/drivers'
-tap 'caskroom/fonts'
 tap 'caskroom/versions'
 
 # Brew Dependencies 
@@ -62,8 +61,11 @@ tap 'homebrew/bundle'
 # Web Browsers
 cask 'firefox'
 cask 'google-chrome'
+brew 'lynx'
+cask 'opera'
 
 # Development Tools
+brew 'git'
 cask "virtualbox"
 cask 'iterm2'
 cask 'vlc'
@@ -77,6 +79,11 @@ cask 'atom'
 cask 'visual-studio-code'
 
 # Fonts 
+brew 'fontconfig'
+brew 'freetype'
+brew 'lcdf-typetools'
+
+tap 'caskroom/fonts'
 cask 'font-lato'
 cask 'font-open-sans'
 cask 'font-roboto'
@@ -109,6 +116,11 @@ cask 'font-inconsolata'
 cask 'font-inconsolata-for-powerline'
 cask 'font-roboto-mono'
 cask 'font-roboto-mono-for-powerline'
+cask 'font-devicons'
+cask 'font-fontawesome'
+cask 'font-open-sans'
+cask 'font-open-sans-condensed'
+cask 'font-roboto'
 
 # Quicklook
 cask 'qlcolorcode'
