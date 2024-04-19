@@ -1,6 +1,0 @@
-// Place your key bindings in this file to overwrite the defaults
-[
-    // RUBO COP 
-    { "key": "ctrl+alt+l",          "command": "ruby.rubocopAutocorrect",
-                                    "when": "editorLangId == 'ruby'" }    
-]
