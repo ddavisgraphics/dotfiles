@@ -8,6 +8,7 @@ fi
 # RUBY =======================================================================
 # install ruby
 asdf plugin-add ruby
+asdf plugin-update ruby
 
 # setup versions
 asdf install ruby 3.3.0
@@ -25,8 +26,10 @@ gem install benchmark-ips
 
 # NODE =======================================================================
 asdf plugin-add nodejs
-asdf install nodejs lts
-asdf global nodejs lts
+
+asdf install nodejs latest
+asdf global nodejs latest
+asdf local nodejs latest
 
 asdf plugin-add yarn
 asdf install yarn latest

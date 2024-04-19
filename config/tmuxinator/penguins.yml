@@ -1,0 +1,60 @@
+# /Users/dave.davis/.config/tmuxinator/penguins.yml
+
+name: penguins
+root: /Users/dave.davis/Desktop/boldpenguin
+
+# =========================================================================
+# TMUXINATOR FOR BP
+# =========================================================================
+# Relies on some zsh functions that will drive the startup processes
+# When you detach from the session CTRL + B (d) you will need to run
+# the kill command.
+
+windows:
+  - backend:
+      layout: 29ef,169x43,0,0{63x43,0,0,0,105x43,64,0[105x10,64,0,3,105x10,64,11,4,105x10,64,22,5,105x10,64,33,6]}
+      panes:
+        - authenticator:
+          - AUTH
+          - rake log:clear
+          - upstart
+        - partner-engine:
+          - PE
+          - rake log:clear
+          - update
+          - wait_for_auth
+          - reset_today
+          - bin/server
+        - carrier-engine:
+          - CE
+          - rake log:clear
+          - wait_for_auth
+          - wait_for_pe
+          - git stash
+          - update
+          - rails db:migrate
+          - rails patches:all
+          - bin/server
+        - carpool:
+          - cd $APP/carpool
+          - rake log:clear
+          - wait_for_auth
+          - upstart
+  - working:
+      layout: 29ef,169x43,0,0{63x43,0,0,0,105x43,64,0[105x10,64,0,3,105x10,64,11,4,105x10,64,22,5,105x10,64,33,6]}
+      panes:
+        - terminal:
+          - cd $APP/terminal
+          - git pull -ff
+          - wait_for_auth
+          - wait_for_pe
+          - yarn install && yarn start
+        - storefront:
+          - cd $APP/storefront
+          - git pull -ff
+        - emporer:
+          - cd $APP/emperor
+          - git pull -ff
+        - console-sratch:
+          - cd $APP
+          - irb

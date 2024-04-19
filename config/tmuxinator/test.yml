@@ -1,0 +1,40 @@
+# /Users/dave.davis/.config/tmuxinator/penguins.yml
+
+name: TESTING
+root: /Users/dave.davis/Desktop/boldpenguin
+
+# =========================================================================
+# TMUXINATOR FOR BP
+# =========================================================================
+# Relies on some zsh functions that will drive the startup processes
+# When you detach from the session CTRL + B (d) you will need to run
+# the kill command.
+
+windows:
+  - backend:
+      layout: 29ef,169x43,0,0{63x43,0,0,0,105x43,64,0[105x10,64,0,3,105x10,64,11,4,105x10,64,22,5,105x10,64,33,6]}
+      panes:
+        - authenticator:
+          - AUTH
+          - rake log:clear
+          - upstart
+        - partner-engine:
+          - PE
+          - rake log:clear
+        - carrier-engine:
+          - CE
+          - rake log:clear
+        - carpool:
+          - cd $APP/carpool
+  - power:
+      layout: 29ef,169x43,0,0{63x43,0,0,0,105x43,64,0[105x10,64,0,3,105x10,64,11,4,105x10,64,22,5,105x10,64,33,6]}
+      panes:
+        - terminal:
+          - cd $APP/terminal
+          - wait_for_pe
+          - yarn install && yarn start
+        - scratchpad:
+          - cd $APP
+        - console-sratch:
+          - cd $APP
+          - irb
