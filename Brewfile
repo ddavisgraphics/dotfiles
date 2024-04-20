@@ -12,9 +12,9 @@ tap 'elastic/tap'
 # ==============================================================================
 # Cask setups
 # ==============================================================================
-tap 'caskroom/cask'
-tap 'caskroom/drivers'
-tap 'caskroom/versions'
+tap 'homebrew/cask'
+tap 'homebrew/cask-drivers'
+tap 'homebrew/cask-versions'
 cask_args appdir: '/Applications'
 
 # ==============================================================================
@@ -22,7 +22,6 @@ cask_args appdir: '/Applications'
 # ==============================================================================
 brew 'coreutils' # Basic file, shell and text manipulation utilities (GNU)
 brew 'tree' # Display directories as trees
-brew 'unrar' # unarchiving tools supporting multiple formats
 
 # ==============================================================================
 # DEV DEPENDENCIES
@@ -208,45 +207,3 @@ cask 'istat-menus' # rss monitoring
 # ==============================================================================
 brew 'mas' # app store client
 mas 'Xcode', id: 497799835
-
-# ==============================================================================
-# Fonts
-# ==============================================================================
-tap 'caskroom/fonts'
-cask 'font-lato'
-cask 'font-open-sans'
-cask 'font-roboto'
-cask 'font-source-code-pro-for-powerline'
-cask 'font-source-code-pro'
-cask 'font-source-sans-pro'
-cask 'font-source-serif-pro'
-cask 'font-hack-nerd-font'
-cask 'font-anonymous-pro'
-cask 'font-dejavu-sans-mono-for-powerline'
-cask 'font-droid-sans'
-cask 'font-droid-sans-mono font-droid-sans-mono-for-powerline'
-cask 'font-meslo-lg font-input'
-cask 'font-inconsolata font-inconsolata-for-powerline'
-cask 'font-liberation-mono font-liberation-mono-for-powerline'
-cask 'font-liberation-sans'
-cask 'font-meslo-lg'
-cask 'font-nixie-one'
-cask 'font-office-code-pro'
-cask 'font-pt-mono'
-cask 'font-raleway'
-cask 'font-roboto'
-cask 'font-source-code-pro'
-cask 'font-source-code-pro-for-powerline'
-cask 'font-source-sans-pro'
-cask 'font-ubuntu font-ubuntu-mono-powerline'
-cask 'font-consolas-for-powerline'
-cask 'font-fira-code'
-cask 'font-inconsolata'
-cask 'font-inconsolata-for-powerline'
-cask 'font-roboto-mono'
-cask 'font-roboto-mono-for-powerline'
-cask 'font-devicons'
-cask 'font-fontawesome'
-cask 'font-open-sans'
-cask 'font-open-sans-condensed'
-cask 'font-roboto'

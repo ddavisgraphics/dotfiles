@@ -72,10 +72,6 @@ shrug() { echo -n "¯\_(ツ)_/¯" }
 
 alias weather="curl -4 http://wttr.in/Leavittsburg"
 
-###############################################################################
-# Load all the BoldPenguin Stuff
-###############################################################################
-export ZSH="~/dotfiles/zsh"
-for file in "$ZSH/boldpenguin"/*.zsh; do
-  source "$file"
+for file in ~/dotfiles/zsh/boldpenguin/*(.); do
+  source $file
 done
