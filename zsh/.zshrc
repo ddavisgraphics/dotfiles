@@ -11,6 +11,7 @@ ZSH_THEME="robbyrussell"
 # PLUGINS
 ###############################################################################
 plugins=(
+  asdf
   git
   gitfast
   dotenv
@@ -28,6 +29,8 @@ source $ZSH/oh-my-zsh.sh
 # export PATH="/usr/local/sbin:$PATH"
 # alias pull="git pull --ff-only"
 # alias killiTerm2='killall iTerm2'
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+export PGGSSENCMODE="disable"
 
 ###############################################################################
 # MAY NOT NEED ON NEW SYSTEM IDK
@@ -46,10 +49,15 @@ alias zsh_reset="source ~/.zshrc"
 DISABLE_AUTO_TITLE="true"
 
 ###############################################################################
+# POSGRES RAILS/PG GEM REQUIREMENTS
+###############################################################################
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
+
+###############################################################################
 # ASDF
 ###############################################################################
-# . "$HOME/.asdf/asdf.sh"
-# . "$HOME/.asdf/completions/asdf.bash"
 
 ###############################################################################
 # Convinience Functions
@@ -75,3 +83,11 @@ alias weather="curl -4 http://wttr.in/Leavittsburg"
 for file in ~/dotfiles/zsh/boldpenguin/*(.); do
   source $file
 done
+
+###############################################################################
+# APPLE DOCK
+###############################################################################
+function add_spacer {
+  defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="'$1'";}'
+  killall Dock
+}

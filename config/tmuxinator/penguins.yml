@@ -1,7 +1,7 @@
 # /Users/dave.davis/.config/tmuxinator/penguins.yml
 
 name: penguins
-root: /Users/dave.davis/Desktop/boldpenguin
+root: ~/Desktop/boldpenguin
 
 # =========================================================================
 # TMUXINATOR FOR BP

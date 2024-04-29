@@ -25,9 +25,19 @@ request_review(){
  curl \
   -X POST \
   -H "Accept: application/vnd.github+json" \
-  -H "Authorization: Bearer $BP_GITHUB_TOKEN" \
+  -H "Authorization: Bearer $BP_REQ_REVIEW_GITHUB" \
   https://api.github.com/repos/BoldPenguin/$1/pulls/$2/requested_reviewers \
-  -d '{"reviewers":["erict11","jcoulter","neilnorthrop", "clareoneill", "nwise", "aterrype", "austin-leligdon"]}'
+  -d '{"reviewers":["erict11","jcoulter","mvarrieur", "littleninja","brennakeiger"]}'
+}
+alias rr=request_review
+
+rrce(){
+  curl \
+  -X POST \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer $BP_REQ_REVIEW_GITHUB" \
+  https://api.github.com/repos/BoldPenguin/$1/pulls/$2/requested_reviewers \
+  -d '{"reviewers":["stout01", "neilnorthrop", "clareoneill", "nwise", "aterrype", "austin-leligdon"]}'
 }
 
 new_branch() {
