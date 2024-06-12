@@ -31,6 +31,7 @@ source $ZSH/oh-my-zsh.sh
 # alias killiTerm2='killall iTerm2'
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export PGGSSENCMODE="disable"
+export PARALLEL_PROCESSOR_COUNT=4
 
 ###############################################################################
 # MAY NOT NEED ON NEW SYSTEM IDK

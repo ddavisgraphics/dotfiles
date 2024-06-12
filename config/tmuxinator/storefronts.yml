@@ -1,0 +1,27 @@
+name: storefronts
+root: ~/Desktop/boldpenguin
+
+windows:
+  - backend:
+      layout: 29ef,169x43,0,0{63x43,0,0,0,105x43,64,0[105x10,64,0,3,105x10,64,11,4,105x10,64,22,5,105x10,64,33,6]}
+      panes:
+        - storefront:
+          - wait_for_pe
+          - cd $APP/storefront
+          - git pull -ff
+          - yarn install && yarn start
+        - guest_flow:
+          - wait_for_auth
+          - cd $APP/guest-flow-gateway
+          - git pull -ff
+          - yarn install && yarn start
+        - geico_storefront:
+          - wait_for_auth
+          - cd $APP/geico-storefront
+          - git pull -ff
+          - yarn install && yarn start
+        - nationwide_storefront:
+          - wait_for_auth
+          - cd $APP/nationwide-storefront
+          - git pull -ff
+          - yarn install && yarn start

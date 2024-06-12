@@ -18,14 +18,7 @@ upstart() {
 }
 
 bs() {
-  tmp_path=$(pwd)
-  if [[ $tmp_path =~ 'partner-engine' ]]; then
-    echo "Starting Partner Engine in single threaded mode..."
-    bundle exec puma -w 1 -p 8080
-  else
-    echo "Not PE using bin/server"
-    bin/server
-  fi
+  bin/server
 }
 
 clobber_logs() {
