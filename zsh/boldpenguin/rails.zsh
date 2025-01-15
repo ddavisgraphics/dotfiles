@@ -28,3 +28,7 @@ clobber_logs() {
 find_rake() {
   rake -T | grep $1
 }
+
+profile_rake() {
+  ruby -Ilib -S ruby-prof -p graph_html /Users/daviddavis/.asdf/shims/rake $1 > tmp/profile.html
+}

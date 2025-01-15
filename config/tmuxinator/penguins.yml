@@ -30,7 +30,6 @@ windows:
         - carrier-engine:
           - CE
           - rake log:clear
-          - wait_for_auth
           - wait_for_pe
           - update
           - rails db:migrate
@@ -40,8 +39,8 @@ windows:
           - cd $APP/carpool
           - git stash && git pull -ff
           - rake log:clear
-          - wait_for_auth
-          - upstart
+          - wait_for_pe
+          - git stash && upstart
   - frontends:
       panes:
         - terminal:
