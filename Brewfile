@@ -1,209 +1,171 @@
-# ==============================================================================
-# Taps
-# ==============================================================================
-tap 'homebrew/cask'
-tap 'homebrew/core'
-tap 'homebrew/boneyard'
-tap 'homebrew/dev-tools'
-tap 'homebrew/bundle'
-tap 'homebrew/services'
-tap 'elastic/tap'
-
-# ==============================================================================
-# Cask setups
-# ==============================================================================
-tap 'homebrew/cask'
-tap 'homebrew/cask-drivers'
-tap 'homebrew/cask-versions'
-cask_args appdir: '/Applications'
-
-# ==============================================================================
-# Utilities
-# ==============================================================================
-brew 'coreutils' # Basic file, shell and text manipulation utilities (GNU)
-brew 'tree' # Display directories as trees
-
-# ==============================================================================
-# DEV DEPENDENCIES
-# ==============================================================================
-brew 'imagemagick' # image manipulation tools (rails req)
-brew 'wget'
-brew 'pv' # monitor data through |
-brew 'z' # makes cd smarter by most used directories
-brew 'fzf' # command line fuzzy finder
-brew 'bat' # better than cat
-brew 'git'
-
-# GUN Library Tools / Dev Dependencies usually
-brew 'bison'
-brew 'automake' # generating GNU Standards-compliant Makefiles
-brew 'glib' # general-purpose, portable utility library for making apps
-brew 'p11-kit' # dependency (something requires it but idk exactly what)
-brew 'libtool'
-brew 'guile'
-brew 'libheif'
-brew 'libffi'
-brew 'openssl@1.1'
-brew 'htop'
-brew 'shared-mime-info'
-brew 'libssh2'
-brew 'libyaml'
-brew 'gmp'
-brew 'gpg' # required for asdf/node plugin
-brew 'ruby-build'
-brew 'asdf' # ruby/node/etc version manager
-
-# other tools that from old machine
-brew 'emacs'
-brew 'fd' # alternative to find
-brew 'gh' # github
-brew 'git' # git
-brew 'netcat'
-brew 'nghttp2'
-brew 'procs' # ps upgrade written rust
-brew 'iproute2mac' # ip command wrappers
-brew 'openslide'
-brew 'redis'
-brew 'ripgrep' # better grep
-
-# ==============================================================================
-# Docker
-# ==============================================================================
-brew 'docker'
-brew 'docker-compose'
-brew 'docker-machine'
-cask 'docker'
-
-# ==============================================================================
-# Terminal Stuff
-# ==============================================================================
-brew 'zsh'
-brew 'zsh-completions'
-brew 'zsh-lovers'
-brew 'zsh-syntax-highlighting'
-brew 'tmux'
-brew 'tmuxinator' # may not need if I install gem but not sure yet.
-cask 'iterm2'
-cask 'alacritty'
-
-# ==============================================================================
-# IDE || VSCODE
-# ==============================================================================
-# APP
-cask 'visual-studio-code'
-## EXTENSIONS
-vscode 'aki77.rubocop-quick-fix'
-vscode 'alefragnani.project-manager'
-vscode 'amih90.to'
-vscode 'angular.ng-template'
-vscode 'arcticicestudio.nord-visual-studio-code'
-vscode 'azemoh.one-monokai'
-vscode 'castwide.solargraph'
-vscode 'codezombiech.gitignore'
-vscode 'connorshea.vscode-ruby-test-adapter'
-vscode 'creinbacher.xpathtester'
-vscode 'darkriszty.markdown-table-prettify'
-vscode 'dbaeumer.vscode-eslint'
-vscode 'donjayamanne.git-extension-pack'
-vscode 'donjayamanne.githistory'
-vscode 'dracula-theme.theme-dracula'
-vscode 'eamodio.gitlens'
-vscode 'editorconfig.editorconfig'
-vscode 'eliverlara.andromeda'
-vscode 'esbenp.prettier-vscode'
-vscode 'fabianlauer.vs-code-xml-format'
-vscode 'fabiospampinato.vscode-diff'
-vscode 'fabiospampinato.vscode-open-in-github'
-vscode 'github.copilot'
-vscode 'github.copilot-chat'
-vscode 'gookyn.case-helper'
-vscode 'groksrc.ruby'
-vscode 'hbenl.vscode-test-explorer'
-vscode 'hoovercj.ruby-linter'
-vscode 'hridoy.rails-snippets'
-vscode 'huizhou.githd'
-vscode 'kaiwood.endwise'
-vscode 'kiteco.kite'
-vscode 'lorankloeze.ruby-rubocop-revived'
-vscode 'mechatroner.rainbow-csv'
-vscode 'medo64.render-crlf'
-vscode 'miguel-savignano.ruby-symbols'
-vscode 'mintlify.document'
-vscode 'misogi.ruby-rubocop'
-vscode 'ms-azuretools.vscode-docker'
-vscode 'ms-vscode-remote.remote-containers'
-vscode 'ms-vscode.live-server'
-vscode 'ms-vscode.test-adapter-converter'
-vscode 'ms-vscode.vscode-typescript-next'
-vscode 'ms-vsliveshare.vsliveshare'
-vscode 'orta.vscode-jest'
-vscode 'quoyi.rails-vscode'
-vscode 'redhat.vscode-xml'
-vscode 'redhat.vscode-yaml'
-vscode 'rokoroku.vscode-theme-darcula'
-vscode 'romanpeshkov.vscode-text-tables'
-vscode 'rubocop.vscode-rubocop'
-vscode 'ryanlaws.toggle-case'
-vscode 'ryanluker.vscode-coverage-gutters'
-vscode 'samuelcharpentier.remove-non-ascii-chars'
-vscode 'sdras.night-owl'
-vscode 'searking.preview-vscode'
-vscode 'shardulm94.trailing-spaces'
-vscode 'shd101wyy.markdown-preview-enhanced'
-vscode 'shopify.ruby-lsp'
-vscode 'streetsidesoftware.code-spell-checker'
-vscode 'stylelint.vscode-stylelint'
-vscode 'tabnine.tabnine-vscode'
-vscode 'thegeoffstevens.best-dark-themes-pack'
-vscode 'vayan.haml'
-vscode 'vense.rails-snippets'
-vscode 'vortizhe.simple-ruby-erb'
-vscode 'vs-publisher-1448185.keyoti-changeallendoflinesequence'
-vscode 'vscodevim.vim'
-vscode 'waderyan.gitblame'
-vscode 'walkme.ruby-extension-pack'
-vscode 'wesbos.theme-cobalt2'
-vscode 'whizkydee.material-palenight-theme'
-vscode 'wingrunr21.vscode-ruby'
-vscode 'youssef.viow'
-vscode 'zhuangtongfa.material-theme'
-vscode 'ziyasal.vscode-open-in-github'
-
-# ==============================================================================
-# BROWSERS
-# ==============================================================================
-cask 'brave-browser'
-cask 'brave-browser-nightly'
-cask 'firefox'
-cask 'google-chrome'
-
-# ==============================================================================
-# Meetings
-# ==============================================================================
-cask 'zoom'
-
-# ==============================================================================
-# My personal sanity
-# ==============================================================================
-cask 'slack'
-cask 'spotify'
-
-# ==============================================================================
-# Productivity Apps
-# ==============================================================================
-cask 'libreoffice'
-cask '1password'
-cask 'appcleaner'
-cask 'bartender'
-cask 'cleanshot' # screencapture and recording
-cask 'clipy' # clipboard extender
-cask 'caffeine' # keeps macbook awake when running scripts and inactive while
-                # viewing the command-line
-cask 'postgres-unofficial' # postgres tool for mac better than cli
-cask 'istat-menus' # rss monitoring
-
-# ==============================================================================
-# Apple App Store
-# ==============================================================================
-brew 'mas' # app store client
-mas 'Xcode', id: 497799835
+tap "elastic/tap"
+tap "homebrew/bundle"
+tap "homebrew/cask-versions"
+tap "homebrew/services"
+brew "automake"
+brew "coreutils"
+brew "libtool"
+brew "libyaml"
+brew "mise"
+brew "python@3.12"
+brew "awscli"
+brew "libssh2"
+brew "bat"
+brew "bison"
+brew "glib"
+brew "docker"
+brew "docker-compose"
+brew "docker-machine"
+brew "p11-kit"
+brew "emacs"
+brew "fd"
+brew "pmix"
+brew "open-mpi"
+brew "fzf"
+brew "gh"
+brew "harfbuzz"
+brew "pango"
+brew "git"
+brew "gitleaks"
+brew "gnupg"
+brew "guile"
+brew "helm"
+brew "htop"
+brew "shared-mime-info"
+brew "libheif"
+brew "imagemagick"
+brew "iproute2mac"
+brew "kubernetes-cli"
+brew "libffi"
+brew "libpq"
+brew "librsvg"
+brew "mas"
+brew "netcat"
+brew "nghttp2"
+brew "node-build"
+brew "openjdk"
+brew "openslide"
+brew "openssl@1.1"
+brew "poppler"
+brew "procs"
+brew "pv"
+brew "redis", restart_service: :changed
+brew "ripgrep"
+brew "ruby-build"
+brew "tmux"
+brew "tmuxinator"
+brew "tree"
+brew "vips"
+brew "wget"
+brew "z"
+brew "zlib"
+brew "zsh"
+brew "zsh-completions"
+brew "zsh-lovers"
+brew "zsh-syntax-highlighting"
+cask "1password", args: { appdir: "/Applications" }
+cask "alacritty", args: { appdir: "/Applications" }
+cask "appcleaner", args: { appdir: "/Applications" }
+cask "bartender", args: { appdir: "/Applications" }
+cask "brave-browser", args: { appdir: "/Applications" }
+cask "brave-browser@nightly", args: { appdir: "/Applications" }
+cask "caffeine", args: { appdir: "/Applications" }
+cask "cleanshot", args: { appdir: "/Applications" }
+cask "clipy", args: { appdir: "/Applications" }
+cask "firefox", args: { appdir: "/Applications" }
+cask "istat-menus", args: { appdir: "/Applications" }
+cask "iterm2", args: { appdir: "/Applications" }
+cask "libreoffice", args: { appdir: "/Applications" }
+cask "opencore-patcher"
+cask "spotify", args: { appdir: "/Applications" }
+cask "visual-studio-code", args: { appdir: "/Applications" }
+cask "zoom", args: { appdir: "/Applications" }
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Xcode", id: 497799835
+vscode "1yib.rust-bundle"
+vscode "aki77.rubocop-quick-fix"
+vscode "alefragnani.project-manager"
+vscode "amih90.to"
+vscode "angular.ng-template"
+vscode "arcticicestudio.nord-visual-studio-code"
+vscode "azemoh.one-monokai"
+vscode "castwide.solargraph"
+vscode "codezombiech.gitignore"
+vscode "connorshea.vscode-ruby-test-adapter"
+vscode "craigmaslowski.erb"
+vscode "creinbacher.xpathtester"
+vscode "dandidevs.multi-file-renamer"
+vscode "darkriszty.markdown-table-prettify"
+vscode "dbaeumer.vscode-eslint"
+vscode "donjayamanne.git-extension-pack"
+vscode "donjayamanne.githistory"
+vscode "dracula-theme.theme-dracula"
+vscode "dustypomerleau.rust-syntax"
+vscode "eamodio.gitlens"
+vscode "editorconfig.editorconfig"
+vscode "eliverlara.andromeda"
+vscode "esbenp.prettier-vscode"
+vscode "fabianlauer.vs-code-xml-format"
+vscode "fabiospampinato.vscode-diff"
+vscode "fabiospampinato.vscode-open-in-github"
+vscode "fill-labs.dependi"
+vscode "github.copilot"
+vscode "github.copilot-chat"
+vscode "github.vscode-pull-request-github"
+vscode "gookyn.case-helper"
+vscode "groksrc.ruby"
+vscode "hbenl.vscode-test-explorer"
+vscode "hoovercj.ruby-linter"
+vscode "hridoy.rails-snippets"
+vscode "huizhou.githd"
+vscode "kaiwood.endwise"
+vscode "lorankloeze.ruby-rubocop-revived"
+vscode "mechatroner.rainbow-csv"
+vscode "medo64.render-crlf"
+vscode "miguel-savignano.ruby-symbols"
+vscode "mintlify.document"
+vscode "misogi.ruby-rubocop"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode.live-server"
+vscode "ms-vscode.test-adapter-converter"
+vscode "ms-vscode.vscode-typescript-next"
+vscode "ms-vsliveshare.vsliveshare"
+vscode "orta.vscode-jest"
+vscode "quoyi.rails-vscode"
+vscode "ratismal.erb-types"
+vscode "redhat.vscode-xml"
+vscode "redhat.vscode-yaml"
+vscode "rokoroku.vscode-theme-darcula"
+vscode "romanpeshkov.vscode-text-tables"
+vscode "rubocop.vscode-rubocop"
+vscode "rust-lang.rust-analyzer"
+vscode "ryanlaws.toggle-case"
+vscode "ryanluker.vscode-coverage-gutters"
+vscode "samuelcharpentier.remove-non-ascii-chars"
+vscode "sdras.night-owl"
+vscode "searking.preview-vscode"
+vscode "shardulm94.trailing-spaces"
+vscode "shd101wyy.markdown-preview-enhanced"
+vscode "shopify.ruby-lsp"
+vscode "streetsidesoftware.code-spell-checker"
+vscode "stylelint.vscode-stylelint"
+vscode "swellaby.rust-pack"
+vscode "tabnine.tabnine-vscode"
+vscode "tamasfe.even-better-toml"
+vscode "thegeoffstevens.best-dark-themes-pack"
+vscode "vayan.haml"
+vscode "vense.rails-snippets"
+vscode "vortizhe.simple-ruby-erb"
+vscode "vs-publisher-1448185.keyoti-changeallendoflinesequence"
+vscode "waderyan.gitblame"
+vscode "walkme.ruby-extension-pack"
+vscode "wesbos.theme-cobalt2"
+vscode "whizkydee.material-palenight-theme"
+vscode "youssef.viow"
+vscode "zhuangtongfa.material-theme"
+vscode "ziyasal.vscode-open-in-github"

@@ -14,7 +14,7 @@ update() {
 }
 
 upstart() {
-  rails log:clear && git pull --ff-only && bundle install && rails db:migrate && rails patches:all && bin/server
+  git pull --ff-only && bundle install && rails log:clear && rails db:migrate && rails patches:all && bin/server
 }
 
 bs() {
@@ -29,6 +29,6 @@ find_rake() {
   rake -T | grep $1
 }
 
-profile_rake() {
-  ruby -Ilib -S ruby-prof -p graph_html /Users/daviddavis/.asdf/shims/rake $1 > tmp/profile.html
-}
+# profile_rake() {
+#   ruby -Ilib -S ruby-prof -p graph_html /Users/daviddavis/.asdf/shims/rake $1 > tmp/profile.html
+# }

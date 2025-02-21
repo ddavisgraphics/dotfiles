@@ -4,6 +4,7 @@
 # DEFAULTS
 ###############################################################################
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="~/.local/bin:$PATH"
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
@@ -11,7 +12,6 @@ ZSH_THEME="robbyrussell"
 # PLUGINS
 ###############################################################################
 plugins=(
-  asdf
   git
   gitfast
   dotenv
@@ -19,12 +19,13 @@ plugins=(
   rake
   ruby
   tmux
+  mise
 )
 
 source $ZSH/oh-my-zsh.sh
 
 ###############################################################################
-# MAY NOT NEED AFTER SWITCHING TO ASDF
+# MAY NOT NEED
 ###############################################################################
 # export PATH="/usr/local/sbin:$PATH"
 # alias pull="git pull --ff-only"
@@ -55,10 +56,6 @@ DISABLE_AUTO_TITLE="true"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
-
-###############################################################################
-# ASDF
-###############################################################################
 
 ###############################################################################
 # Convinience Functions

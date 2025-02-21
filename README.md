@@ -8,7 +8,10 @@
   - Install Homebrew Bundle `brew tap Homebrew/bundle`
   - `brew bundle install`
 - Install ZSH `sh zsh_install.sh`
-- Install ASDF `sh asdf_install.sh`
+
+## REPLACED BY MISE
+- Ignore ASDF `sh asdf_install.sh`
+- Install mise `sh mise_install.sh`
 
 ## UPDATE
 - KEEP THE FILE UPDATED DAVE :: REMEMBER THE PAIN

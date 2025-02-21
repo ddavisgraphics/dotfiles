@@ -63,3 +63,19 @@ git_cp() {
   print "----------------------------------------------------------------"
   print "Completed Git Commit and Push"
 }
+
+git_compare() {
+  print "Comparing $2 to $3 on the BoldPenguin $1"
+  repo_url="https://github.com/BoldPenguin/"
+  product=$1
+  branch1=$2
+  branch2=$3
+  echo "${repo_url}/${product}/compare/${branch1}...${branch2}"
+}
+
+git_hard_reset() {
+  GIT=$(git rev-parse --show-toplevel)
+  cd $GIT/..
+  rm -rf $GIT
+  git clone ...
+}

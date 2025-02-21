@@ -21,3 +21,12 @@ aws_urls(){
   echo "PE: partner-engine-$1.canary.boldpenguin.com\n"
   echo "Terminal: terminal-$1.canary.boldpenguin.com\n"
 }
+
+###############################################################################
+# STABLE VERSIONS OF SOFTWARE FOR LATEST TAGS
+###############################################################################
+
+# RUBY
+ruby_stable(){
+  curl -s https://www.ruby-lang.org/en/downloads/ | grep -o 'The current stable version is [0-9]\+\.[0-9]\+\.[0-9]\+' | awk '{print $6}'
+}
