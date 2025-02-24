@@ -19,7 +19,7 @@ plugins=(
   rake
   ruby
   tmux
-  mise
+  asdf
 )
 
 source $ZSH/oh-my-zsh.sh

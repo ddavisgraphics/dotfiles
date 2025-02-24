@@ -11,7 +11,7 @@
 
 ## REPLACED BY MISE
 - Ignore ASDF `sh asdf_install.sh`
-- Install mise `sh mise_install.sh`
+<!-- - Install mise `sh mise_install.sh` -->
 
 ## UPDATE
 - KEEP THE FILE UPDATED DAVE :: REMEMBER THE PAIN
