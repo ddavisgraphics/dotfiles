@@ -22,23 +22,14 @@ git_cops(){
 # @param $1 github repo
 # @param $2 pull_request number
 request_review(){
- curl \
-  -X POST \
-  -H "Accept: application/vnd.github+json" \
-  -H "Authorization: Bearer $BP_REQ_REVIEW_GITHUB" \
-  https://api.github.com/repos/BoldPenguin/$1/pulls/$2/requested_reviewers \
-  -d '{"reviewers":["remingtron", "erict11","jcoulter", "littleninja","brennakeiger"]}'
-}
-alias rr=request_review
-
-rrce(){
   curl \
   -X POST \
   -H "Accept: application/vnd.github+json" \
   -H "Authorization: Bearer $BP_REQ_REVIEW_GITHUB" \
   https://api.github.com/repos/BoldPenguin/$1/pulls/$2/requested_reviewers \
-  -d '{"reviewers":["stout01", "neilnorthrop", "clareoneill", "nwise", "aterrype", "austin-leligdon"]}'
+  -d '{"reviewers":["clareoneill", "aterrype", "austin-leligdon", "castriganoj", "bp-vjvans", "erict11", "Copilot" ]}'
 }
+alias rr=request_review
 
 new_branch() {
   git checkout -b $1
