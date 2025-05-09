@@ -30,3 +30,19 @@ aws_urls(){
 ruby_stable(){
   curl -s https://www.ruby-lang.org/en/downloads/ | grep -o 'The current stable version is [0-9]\+\.[0-9]\+\.[0-9]\+' | awk '{print $6}'
 }
+
+
+# line endings for appetites csvs
+line_endings() {
+    for file in ~/Desktop/boldpenguin/partner-engine/engines/appetite/lib/seeds/appetite/*.csv; do
+        echo "Converting line endings for: $file"
+        dos2unix "$file"
+    done
+}
+
+# From Vinny, runs a bp rake task to diff questions.yml
+# run as: debug chubbcarrier
+debug(){
+  rake debug:question_yml:staging_diff\[lib/seeds/$1/questions.yml\]
+}
+
