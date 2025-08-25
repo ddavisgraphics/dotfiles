@@ -50,6 +50,6 @@ reset_today() {
     then
       echo "No need to reset, moving on."
     else
-     bin/reset
+      SKIP_CACHE_DUMP=true bin/reset
   fi
 }

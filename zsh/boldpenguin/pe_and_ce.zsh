@@ -5,6 +5,14 @@ start_pe() {
   {PE} && rails log:clear && {update} && {reset_today} && bin/server
 }
 
+pe_pryable() {
+  bundle exec puma -w 1 -p 8080
+}
+
+ce_pryable() {
+  bundle exec puma -w 1 -p 3002
+}
+
 update_ce() {
   git stash && git pull --ff-only && bundle install  && rails db:migrate && rails patches:all && bin/server
 }
