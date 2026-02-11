@@ -39,3 +39,8 @@ service_starter() {
   redis_startup
   opensearch_startup
 }
+
+sidekiq_clear_all() {
+  bundle exec rails runner "require 'sidekiq/api'; Sidekiq::Queue.all.each(&:clear); Sidekiq::RetrySet.new.clear; Sidekiq::ScheduledSet.new.clear; Sidekiq::DeadSet.new.clear"
+  echo "✓ All Sidekiq queues cleared"
+}

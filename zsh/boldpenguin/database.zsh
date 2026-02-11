@@ -11,6 +11,17 @@ restore_auth_db(){
   psql -f $APP/files/auth-latest-${DATE}.sql postgres
 }
 
+clean_tmp_dbs() {
+  local dbs_dir="~/Desktop/boldpenguin/partner-engine/tmp/dbs"
+  local cutoff_date
+  cutoff_date=$(date -v-5d +"%Y%m%d%H%M.%S")
+
+  echo "Removing files in $dbs_dir older than 5 days..."
+  find "$dbs_dir" -type f ! -newermt "-5 days" -print -delete
+  echo "Done. Only files from the last 5 days remain."
+}
+
+
 save_db() {
   DATE=$(date +%Y%m%d)
   if [[ ${1:+present} ]]

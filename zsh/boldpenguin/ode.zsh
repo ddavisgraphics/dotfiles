@@ -48,7 +48,6 @@ stay_awake() {
 
   # Validate input is between 1 and 12
   if [[ $hours -lt 1 || $hours -gt 12 ]]; then
-    echo "❌ Error: Please specify hours between 1 and 12"
     return 1
   fi
 

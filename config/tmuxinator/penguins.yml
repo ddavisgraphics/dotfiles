@@ -17,23 +17,20 @@ windows:
                           - authenticator:
                                     - AUTH
                                     - redis_startup
+                                    - clobber_logs
                                     - opensearch_startup
                                     - upstart
                           - partner-engine:
                                     - PE
                                     - update
+                                    - clobber_logs
+                                    - clean_tmp_dbs
                                     - wait_for_auth
                                     - reset_today
-                                    - bin/server
-                          #     - carrier-engine:
-                          #             - CE
-                          #             - wait_for_pe
-                          #             - update
-                          #             - rails db:migrate
-                          #             - rails patches:all
-                          #             - bin/server
+                                    - overmind s -f Procfile.dev
                           - carpool:
                                     - cd $APP/carpool
+                                    - clobber_logs
                                     - git stash && git pull -ff
                                     - wait_for_pe
                                     - git stash && upstart
