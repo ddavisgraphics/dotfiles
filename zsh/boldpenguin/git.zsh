@@ -38,7 +38,7 @@ alias rr=request_review
 get_pr_feedback(){
   local repo=$1
   local pr_number=$2
-  
+
   # Validate required parameters
   if [ -z "$repo" ] || [ -z "$pr_number" ]; then
     echo "Error: Missing required parameters!"
@@ -46,19 +46,19 @@ get_pr_feedback(){
     echo "Example: get_pr_feedback penguins 1234"
     return 1
   fi
-  
+
   echo "Fetching PR feedback for PR #$pr_number in BoldPenguin/$repo..."
   echo "================================================================"
-  
+
   # Test if token is set
   if [ -z "$BP_REQ_REVIEW_GITHUB" ]; then
     echo "Error: BP_REQ_REVIEW_GITHUB environment variable is not set!"
     return 1
   fi
-  
+
   # GraphQL query to get all PR feedback
   local graphql_query="{\"query\": \"query { repository(name: \\\"$repo\\\", owner: \\\"BoldPenguin\\\") { pullRequest(number: $pr_number) { reviews(first: 100) { nodes { bodyText createdAt state author { login } comments(first: 100) { nodes { path position body author { login } } } } } comments(first: 100) { nodes { author { login } createdAt body } totalCount } } } }\"}"
-  
+
   echo "Fetching PR data via GraphQL..."
   local temp_file=$(mktemp)
   curl -s -X POST \
@@ -66,7 +66,7 @@ get_pr_feedback(){
     -H "Content-Type: application/json" \
     -d "$graphql_query" \
     https://api.github.com/graphql > "$temp_file"
-  
+
   # Check for errors
   if jq -e '.errors' "$temp_file" >/dev/null 2>&1; then
     echo "GraphQL API Error:"
@@ -74,26 +74,26 @@ get_pr_feedback(){
     rm "$temp_file"
     return 1
   fi
-  
+
   # Count everything directly from the file
   local review_count=$(jq '[.data.repository.pullRequest.reviews.nodes[] | select(.bodyText != null and .bodyText != "")] | length' "$temp_file" 2>/dev/null || echo "0")
   local review_comment_count=$(jq '[.data.repository.pullRequest.reviews.nodes[].comments.nodes[]] | length' "$temp_file" 2>/dev/null || echo "0")
   local pr_comment_count=$(jq '.data.repository.pullRequest.comments.nodes | length' "$temp_file" 2>/dev/null || echo "0")
-  
+
   local total_count=$((review_count + review_comment_count + pr_comment_count))
-  
+
   echo ""
-  
+
   if [ "$total_count" -eq 0 ]; then
     echo "No feedback found for this PR."
     rm "$temp_file"
     return
   fi
-  
+
   echo "Found $review_count review(s), $review_comment_count review comment(s), and $pr_comment_count conversation comment(s)"
   echo "================================================================"
   echo ""
-  
+
   # Display reviews
   if [ "$review_count" -gt 0 ]; then
     echo "⭐ REVIEWS:"
@@ -110,12 +110,12 @@ get_pr_feedback(){
     ' "$temp_file" 2>/dev/null
     echo ""
   fi
-  
+
   # Display review comments grouped by file
   if [ "$review_comment_count" -gt 0 ]; then
     echo "💬 REVIEW COMMENTS (by file):"
     echo "================================================================"
-    
+
     # Flatten and group review comments by path
     jq -r '
       [.data.repository.pullRequest.reviews.nodes[].comments.nodes[]] |
@@ -131,7 +131,7 @@ get_pr_feedback(){
     ' "$temp_file" 2>/dev/null
     echo ""
   fi
-  
+
   # Display PR conversation comments
   if [ "$pr_comment_count" -gt 0 ]; then
     echo "💭 CONVERSATION COMMENTS:"
@@ -147,7 +147,7 @@ get_pr_feedback(){
     ' "$temp_file" 2>/dev/null
     echo ""
   fi
-  
+
   # Clean up
   rm "$temp_file"
 }
