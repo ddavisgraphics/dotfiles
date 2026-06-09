@@ -39,6 +39,8 @@ GLOBAL_RUBY_GEMS=(
   "colorize"
 )
 
+alias rake='bundle exec rake'
+
 # Install all global Ruby gems
 function install_ruby_gems() {
   echo "🔷 Installing essential Ruby development gems..."

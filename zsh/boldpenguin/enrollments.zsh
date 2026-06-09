@@ -8,6 +8,10 @@ deactivate_bc() {
   AUTH && rake 'enrollments:deactivate_all_for_brokerage[businesscoverage]'
 }
 
+deactivate_dave() {
+  AUTH && rake 'enrollments:deactivate_all_for_brokerage[crazydavesagency]'
+}
+
 deactivate_enrollments() {
   AUTH && rake "enrollments:deactivate_all_for_brokerage[$1]" && PE && echo "Deactivated all enrollments for $1"
 }

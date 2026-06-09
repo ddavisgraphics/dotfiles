@@ -6,6 +6,10 @@ bp_run() {
   rails patches:run\[${1}\]
 }
 
+bp_run_command() {
+  echo "rails patches:run\[${1}\]"
+}
+
 bp_patch() {
   if [[ ${1:+present} ]]
     then

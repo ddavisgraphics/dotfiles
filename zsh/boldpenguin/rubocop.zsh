@@ -6,7 +6,7 @@
 ###############################################################################
 
 cop() {
-  git diff origin/staging... --name-only --diff-filter=AM | \
+  { git diff origin/master --name-only --diff-filter=AM; git ls-files --others --exclude-standard; } | \
             xargs bundle exec rubocop \
               --parallel \
               --fail-level convention \
@@ -16,12 +16,12 @@ cop() {
 }
 alias cops=cop
 
-cop_mods() {
-  git diff origin/staging --name-only | grep '\.rb$' | xargs bundle exec rubocop --autocorrect --parallel
-}
+# fix_cops() {
+#   git diff origin/staging --name-only | grep '\.rb$' | xargs bundle exec rubocop --autocorrect --parallel
+# }
 
 fix_cop() {
-  git diff origin/staging... --name-only --diff-filter=AM | \
+  { git diff origin/master --name-only --diff-filter=AM; git ls-files --others --exclude-standard; } | \
             xargs bundle exec rubocop \
               --parallel \
               --display-style-guide \
@@ -29,3 +29,10 @@ fix_cop() {
               --autocorrect
 }
 alias fix_cops=fix_cop
+
+# cop_pr - Run rubocop only on Ruby files changed vs a base branch (default: origin/master)
+# Usage: cop_pr [base_branch]
+cop_pr() {
+  local base=${1:-origin/master}
+  git diff "${base}...HEAD" --name-only | grep -E "^(app|test|lib)/.*\.rb$" | xargs bundle exec rubocop
+}
