@@ -27,7 +27,7 @@ request_review(){
   -H "Accept: application/vnd.github+json" \
   -H "Authorization: Bearer $BP_REQ_REVIEW_GITHUB" \
   https://api.github.com/repos/BoldPenguin/$1/pulls/$2/requested_reviewers \
-  -d '{"reviewers":["dillonburrows-bp", "russbogomol", "castriganoj", "saratkavila", "alexwilliams-bp"]}'
+  -d '{"reviewers":["dillonburrows-bp", "russbogomol", "castriganoj", "alexwilliams-bp", "pkvenugalla"]}'
 }
 alias rr=request_review
 
